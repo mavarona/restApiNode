@@ -55,7 +55,7 @@ exports.updateClient = async(req, res, next) => {
 exports.deleteClient = async(req, res, next) => {
 
     try {
-        const client = await Clients.findOneAndDelete({ _id: req.params.id });
+        await Clients.findOneAndDelete({ _id: req.params.id });
         res.json('El cliente fue eliminado');
     } catch (err) {
         console.log(err);

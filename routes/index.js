@@ -3,6 +3,7 @@ const router = express.Router();
 
 const clientController = require('../controllers/clientController');
 const productsController = require('../controllers/productsController');
+const ordersController = require('../controllers/ordersController');
 
 module.exports = function() {
 
@@ -17,6 +18,12 @@ module.exports = function() {
     router.get('/products/:id', productsController.showProduct);
     router.put('/products/:id', productsController.uploadFile, productsController.updateProduct);
     router.delete('/products/:id', productsController.deleteProduct);
+
+    router.post('/orders', ordersController.newOrder);
+    router.get('/orders', ordersController.showOrders);
+    router.get('/orders/:id', ordersController.showOrder);
+    router.put('/orders/:id', ordersController.updateOrder);
+    router.delete('/orders/:id', ordersController.deleteOrder);
 
     return router;
 }
