@@ -44,7 +44,7 @@ exports.updateClient = async(req, res, next) => {
 
     try {
         const client = await Clients.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
-        res.json(client);
+        res.json({client, message: 'El cliente se actualizó'});
     } catch (err) {
         res.send(err);
         next();
@@ -56,7 +56,7 @@ exports.deleteClient = async(req, res, next) => {
 
     try {
         await Clients.findOneAndDelete({ _id: req.params.id });
-        res.json('El cliente fue eliminado');
+        res.json({message:'El cliente fue eliminado'});
     } catch (err) {
         res.send(err);
         next();

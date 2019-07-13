@@ -18,6 +18,8 @@ app.use(cors());
 
 app.use('/', routes());
 
+app.use(express.static('uploads'));
+
 app.listen(5001, () => {
     console.log('Running in port 5001');
 });

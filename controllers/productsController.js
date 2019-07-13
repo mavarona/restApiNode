@@ -45,7 +45,7 @@ exports.newProduct = async(req, res, next) => {
         await product.save();
         res.json({ message: 'Se creó un nuevo producto' });
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next()
     }
 
@@ -56,7 +56,7 @@ exports.showProducts = async(req, res) => {
         const products = await Products.find({});
         res.json(products);
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 }
@@ -71,7 +71,7 @@ exports.showProduct = async(req, res, next) => {
         }
         res.json(product);
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 
@@ -88,9 +88,9 @@ exports.updateProduct = async(req, res, next) => {
             newProduct.img = productOld.img;
         }
         let product = await Products.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
-        res.json(product);
+        res.json({product, message: 'El Artículo fue modificado'});
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 
@@ -109,9 +109,9 @@ exports.deleteProduct = async(req, res, next) => {
             });
         }
         await Products.findOneAndDelete({ _id: req.params.id });
-        res.json('El producto fue eliminado');
+        res.json({message: 'El producto fue eliminado'});
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 }
