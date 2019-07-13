@@ -8,7 +8,7 @@ exports.newClient = async(req, res, next) => {
         await client.save();
         res.json({ message: 'Se creo un nuevo cliente' });
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 
@@ -19,7 +19,7 @@ exports.showClients = async(req, res) => {
         const clients = await Clients.find({});
         res.json(clients);
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 }
@@ -34,7 +34,7 @@ exports.showClient = async(req, res, next) => {
         }
         res.json(client);
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 
@@ -46,7 +46,7 @@ exports.updateClient = async(req, res, next) => {
         const client = await Clients.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
         res.json(client);
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 
@@ -58,7 +58,7 @@ exports.deleteClient = async(req, res, next) => {
         await Clients.findOneAndDelete({ _id: req.params.id });
         res.json('El cliente fue eliminado');
     } catch (err) {
-        console.log(err);
+        res.send(err);
         next();
     }
 
