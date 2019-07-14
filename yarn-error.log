@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add bcrypt
+
+PATH: 
+  /Users/mavl/google-cloud-sdk/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Applications/Postgres.app/Contents/Versions/11/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  11.8.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/mavl/Mavl/Nodejs/2019/RestApiClients/node_modules/aproba'
+
+npm manifest: 
+  {
+      "name": "restapiclients",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+          "start": "nodemon ./index.js"
+      },
+      "author": "mavlmac",
+      "license": "MIT",
+      "dependencies": {
+          "cors": "^2.8.5",
+          "express": "^4.17.1",
+          "jsonwebtoken": "^8.5.1",
+          "mongoose": "^5.6.4",
+          "multer": "^1.4.1",
+          "shortid": "^2.2.14",
+          "bcrypt": "3.0.2"
+      },
+      "devDependencies": {
+          "nodemon": "^1.19.1"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
