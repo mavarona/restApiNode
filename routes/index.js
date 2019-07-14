@@ -18,8 +18,9 @@ module.exports = function() {
     router.get('/products/:id', productsController.showProduct);
     router.put('/products/:id', productsController.uploadFile, productsController.updateProduct);
     router.delete('/products/:id', productsController.deleteProduct);
+    router.post('/products/search/:query', productsController.searchProduct);
 
-    router.post('/orders', ordersController.newOrder);
+    router.post('/orders/new/:id', ordersController.newOrder);
     router.get('/orders', ordersController.showOrders);
     router.get('/orders/:id', ordersController.showOrder);
     router.put('/orders/:id', ordersController.updateOrder);

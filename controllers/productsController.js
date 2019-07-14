@@ -115,3 +115,13 @@ exports.deleteProduct = async(req, res, next) => {
         next();
     }
 }
+
+exports.searchProduct = async(req, res, next) => {
+    try {
+        const { query } = req.params;
+        const product =  await Products.find({name: new RegExp(query, 'i')});
+        res.json(product); 
+    } catch (err) {
+        res.send(err);
+    }
+}
